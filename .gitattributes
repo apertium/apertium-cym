@@ -1,0 +1,3 @@
+* text=auto !eol
+/apertium-cym.cym.dix -text
+/apertium-cym.cym.rlx -text
