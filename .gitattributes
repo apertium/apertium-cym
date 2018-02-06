@@ -11,3 +11,4 @@
 /apertium-cym.pc.in -text
 /autogen.sh -text
 /configure.ac -text
+/modes.xml -text
