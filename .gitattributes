@@ -5,6 +5,7 @@
 /Makefile.am -text
 /NEWS -text
 /README -text
+/apertium-cym.cym.acx -text
 /apertium-cym.cym.dix -text
 /apertium-cym.cym.rlx -text
 /apertium-cym.pc.in -text
