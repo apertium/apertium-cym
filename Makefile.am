@@ -7,7 +7,8 @@ VERSION=0.1.0
 LANG1=cym
 BASENAME=apertium-$(LANG1)
 
-TARGETS_COMMON = $(LANG1).automorf.bin $(LANG1).autogen.bin \
+TARGETS_COMMON = $(LANG1).automorf.bin \
+	$(LANG1).autogen.bin pre-$(LANG1).t1x.bin $(LANG1).autopgen.bin $(LANG1).autoorth.bin \
 	$(LANG1).automorf.att.gz $(LANG1).autogen.att.gz \
 	$(LANG1).rlx.bin
 
@@ -30,12 +31,26 @@ $(LANG1).autogen.att.gz: $(LANG1).autogen.bin
 $(LANG1).automorf.att.gz: $(LANG1).automorf.bin
 	lt-print $< | gzip -9 -c -n > $@
 
+$(LANG1).autopgen.bin: $(BASENAME).post-$(LANG1).dix
+	lt-comp lr $< $@
+
+$(LANG1).autoorth.bin: $(BASENAME).orth-$(LANG1).dix
+	lt-comp lr $< $@
+
 ###############################################################################
 ## Disambiguation rules 
 ###############################################################################
 
 $(LANG1).rlx.bin: $(BASENAME).$(LANG1).rlx $(CGCOMP)
 	$(CGCOMP) $< $@
+
+###############################################################################
+## Transfer rules (used before generation)
+###############################################################################
+
+pre-$(LANG1).t1x.bin: $(BASENAME).pre-$(LANG1).t1x
+	apertium-validate-transfer $(BASENAME).pre-$(LANG1).t1x
+	apertium-preprocess-transfer $(BASENAME).pre-$(LANG1).t1x $@
 
 ###############################################################################
 ## Spell checker
@@ -83,8 +98,12 @@ $(LANG1).zhfst: .deps/acceptor.default.hfst .deps/errmodel.default.hfst
 ## Distribution
 ###############################################################################
 EXTRA_DIST=$(BASENAME).$(LANG1).dix \
-	   $(BASENAME).$(LANG1).rlx  \
-	   modes.xml
+		$(BASENAME).$(LANG1).acx \
+		$(BASENAME).$(LANG1).rlx \
+		$(BASENAME).post-$(LANG1).dix \
+		$(BASENAME).pre-$(LANG1).t1x \
+		$(LANG1).prob \
+		modes.xml
 
 ###############################################################################
 ## Installation stuff
@@ -124,3 +143,14 @@ install-data-local: install-modes
 CLEANFILES = $(TARGETS_COMMON)
 clean-local:
 	-rm -rf .deps modes
+
+###############################################################################
+## Test
+###############################################################################
+
+test: all
+	echo "TODO test sentence" | apertium -d . cym-morph | tee .test-mt
+	@echo "TODO test analysis results" > .test-ref
+	@diff .test-ref .test-mt
+	@rm .test-ref .test-mt
+
