@@ -54835,7 +54835,8 @@
     <e lm="oes"><i>oes</i><par n="oes__vbser"/><p><l><b/>angen</l><r><g><b/>angen</g></r></p></e>
     -->
 
-    <e lm="byw"><i>byw</i><par n="byw__vblex"/></e>
+    <!-- FMT: Initial b added -->
+    <e lm="byw"><par n="initial-b"/><i>yw</i><par n="byw__vblex"/></e>
 
     <e lm="oes"><i>oes</i><par n="oes__vbser"/></e>
     <e lm="does"><p><l>does</l><r>ni<s n="vpart"/><s n="neg"/><j/>oes</r></p><par n="oes__vbser"/></e>
