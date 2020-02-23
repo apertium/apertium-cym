@@ -35,6 +35,9 @@ LIST Top = (np top);
 LIST Ant = (np ant);		# anthroponyms
 LIST Cog = (np cog);
 LIST Acr = (n acr);
+LIST Vbmod = vbmod ;
+
+SET N = NC | NP ; 
 
 LIST MF = mf;		# masculine/feminine
 LIST M = m;			# masculine
@@ -685,6 +688,9 @@ SUBSTITUTE:M_ffordd_way_gwahanol ("ffordd" n f) ("ffordd" n f S1) ("ffordd" n f)
 
 # datblygodd y cwricwlwm i gynnwys mathemateg
 SELECT ("<gynnwys>" vblex inf) IF (-1 ("i" pr)) (1 NC);
+
+
+SELECT ("<fyw>"i vblex inf)  IF (-1* Vbmod BARRIER (*) - Adj - Det - N) ;
 
 
 ####
