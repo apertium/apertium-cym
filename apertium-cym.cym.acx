@@ -16,4 +16,27 @@
     <equiv-char value="ʼ"/>
     <equiv-char value="‘"/>
   </char>
+  <char value="ŵ">
+    <equiv-char value="w"/>
+  </char>
+  <char value="â">
+    <equiv-char value="a"/>
+  </char>
+  <char value="ê">
+    <equiv-char value="e"/>
+  </char>
+  <char value="î">
+    <equiv-char value="i"/>
+  </char>
+  <char value="ô">
+    <equiv-char value="o"/>
+  </char>
+  <char value="û">
+    <equiv-char value="u"/>
+  </char>
+  <char value="ŷ">
+    <equiv-char value="y"/>
+  </char>
+
+
 </analysis-chars>

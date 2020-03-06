@@ -71,6 +71,8 @@ SET PrnSubjP1Pl = PrnSubj + P1Pl;
 SET PrnSubjP2Pl = PrnSubj + P2Pl;
 SET PrnSubjP3Pl = PrnSubj + P3Pl;
 
+LIST Ar = "ar"i ; 
+
 # verbs
 
 LIST V = vaux vblex vbser vbmod;		 	# lexical verbs and "to be"
@@ -83,12 +85,12 @@ LIST Oes = (vbser sp); 		# oes
 
 LIST Vpart = (vpart neg) (vpart aff) (vpart itg); # Verbal particles
 
-LIST vb_1sg = V + (p1 sg);
-LIST vb_2sg = V + (p2 sg);
-LIST vb_3sg = V + (p3 sg);
-LIST vb_1pl = V + (p1 pl);
-LIST vb_2pl = V + (p2 pl);
-LIST vb_3pl = V + (p3 pl);
+SET vb_1sg = V + (p1 sg);
+SET vb_2sg = V + (p2 sg);
+SET vb_3sg = V + (p3 sg);
+SET vb_1pl = V + (p1 pl);
+SET vb_2pl = V + (p2 pl);
+SET vb_3pl = V + (p3 pl);
 
 LIST vb_inf = (vblex inf);
 
@@ -693,6 +695,7 @@ SELECT ("<gynnwys>" vblex inf) IF (-1 ("i" pr)) (1 NC);
 SELECT ("<fyw>"i vblex inf)  IF (-1* Vbmod BARRIER (*) - Adj - Det - N) ;
   ## Yn ddibynol ar y brid a'r amgylchedd, gall y ceffyl modern fyw i fod yn 25 neu'n 30 mlwydd oed.
 
+SELECT Pr IF (0 Ar) (1 Num) (2 N) (3 Num) ;
 
 ####
 # Some things extracted from evaluation of cy-en 0.1 test sentences
