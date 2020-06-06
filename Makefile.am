@@ -119,7 +119,7 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_cym_DATA=$(TARGETS_COMMON)  $(EXTRA_TARGETS)
+apertium_cym_DATA=$(TARGETS_COMMON) $(LANG1).prob $(EXTRA_TARGETS)
 
 
 pkgconfigdir = $(prefix)/share/pkgconfig
