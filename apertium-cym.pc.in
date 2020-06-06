@@ -1,6 +1,7 @@
 prefix=@prefix@
 exec_prefix=@exec_prefix@
+srcdir=@datarootdir@/apertium/apertium-cym
 
 Name: apertium-cym
-Description: Finite-state morphological transducer and constraint grammar for Welsh 
-Version: 0.1.0
+Description: Finite-state morphological transducer and constraint grammar for Welsh
+Version: @VERSION@
