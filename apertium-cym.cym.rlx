@@ -232,6 +232,12 @@ SELECT (vbser cns) (-1 Vpart);
 # choose det.def after a verb and before a noun
 REMOVE:R_yr_vpart Vpart (-1 V) (1 NC);
 
+# mae'r bachgen yn yr ardd.
+# yn -> pr not part
+# yr -> det not part
+REMOVE Vpart (-1 Pr) (1 NC);
+SELECT Pr IF (1C Det LINK 1 NC) ;
+
 # choose the interrogative "a" instead of the conjunctive "a" if oes follows
 # this could probably be broadened out
 # a oes lle yma? (is there room (a place) here?) - *and there are where here
