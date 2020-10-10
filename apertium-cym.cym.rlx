@@ -11,6 +11,8 @@
 # Intial configuration
 #####################################
 
+SUBREADINGS = LTR ;
+
 DELIMITERS = "<.>" "<!>" "<?>" (sent); # end-of-sentence markers
 
 # the LIST statements give Apertium tags a mnemonic to be used in the rules
@@ -252,6 +254,9 @@ REMOVE:R_a_cnjcoo ("a" cnjcoo) (1 Oes);
 #Mae hen wlad fy'n nhadau
 SELECT (part) IF (-1C DetPos) (0 (part)) (0 DetPos);
 
+# "o'n dweud y gwir" 'n should be pr not det pos
+SELECT SUB:1 Pr IF (0/1 Pr) (0/1 DetPos) (1 V);
+
 
 # Determiners
 #####################################
@@ -285,6 +290,10 @@ REMOVE DetDem IF (NOT -2* DetDef BARRIER V) ;
 REMOVE Adv IF (-1 NC) (0 Adv) (0 DetDem);
 REMOVE Prn IF (-1 NC) (0 Prn) (0 DetDem);
 # may not be required now - R_yna_det
+
+
+# "dy lyfr" is "your book" not "house book"
+SELECT ("dy" det) IF (0 ("tŷ" n)) (1 N);
 
 
 
@@ -446,8 +455,9 @@ REMOVE:R_bath_preo ("bath" n) (1 ("o" pr));
 SELECT:S_yn_stative ("yn" part) (1 (inf));
 SUBSTITUTE:M_infin_vn_postyn (inf) (ger) (inf) (-1 ("yn" part));
 
-
-
+# ei bod hi'n gadael am ddyn arall
+# am -> preposition between verb and noun
+SELECT Pr IF (0 ("am" pr)) (1 N) (-1 V);
 
 
 # Verbs - bod
@@ -604,7 +614,8 @@ REMOVE PrnSubj IF (-1 (np)) (0 Pr) (0 PrnSubj) (1 (np));
 # too broad - seems to interfere with M_infin_vn_postyn
 
 #54 acer o barcio 
-SELECT Pr IF (-1 NC) (1 V);
+SELECT Pr IF ((-1 NC) OR (-1 Prn) OR (-1 PrnObj)) (1 V);
+# "bod nhw am mynd" am should be pr, not vblex
 
 #yn sicr o gynyddu
 REMOVE PrnSubj IF (-1 Adj) (1 V);
