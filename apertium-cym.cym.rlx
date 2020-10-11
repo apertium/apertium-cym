@@ -257,6 +257,9 @@ SELECT (part) IF (-1C DetPos) (0 (part)) (0 DetPos);
 # "o'n dweud y gwir" 'n should be pr not det pos
 SELECT SUB:1 Pr IF (0/1 Pr) (0/1 DetPos) (1 V);
 
+# "bydd hynny'n newyddion da"
+SELECT (part) IF (0 (part)) (0 DetPos) (-1 (prn tn));
+
 
 # Determiners
 #####################################
@@ -713,6 +716,10 @@ SELECT ("<fyw>"i vblex inf)  IF (-1* Vbmod BARRIER (*) - Adj - Det - N) ;
   ## Yn ddibynol ar y brid a'r amgylchedd, gall y ceffyl modern fyw i fod yn 25 neu'n 30 mlwydd oed.
 
 SELECT Pr IF (0 Ar) (1 Num) (2 N) (3 Num) ;
+
+# "mor agored ag"
+# agored should be adj not vblex
+SELECT Adj IF (-1 ("mor" adv)) (1 ("â" pr)) (0 (vblex));
 
 ####
 # Some things extracted from evaluation of cy-en 0.1 test sentences
