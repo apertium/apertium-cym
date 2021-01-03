@@ -1,19 +1,7 @@
-* text=auto !eol
-/AUTHORS -text
-/COPYING -text
-/ChangeLog -text
-/Makefile.am -text
-/NEWS -text
-/README -text
-/apertium-cym.cym.acx -text
-/apertium-cym.cym.dix -text
-/apertium-cym.cym.rlx -text
-/apertium-cym.pc.in -text
-/autogen.sh -text
-/configure.ac -text
-/modes.xml -text
+* text eol=lf
 *.dix linguist-language=XML linguist-detectable=true
 *.lrx linguist-language=XML linguist-detectable=true
 *.lsx linguist-language=XML linguist-detectable=true
 *.tsx linguist-language=XML linguist-detectable=true
 *.t[[:digit:]]x linguist-language=XML linguist-detectable=true
+*.prob binary

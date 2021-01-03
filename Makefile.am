@@ -39,8 +39,8 @@ $(LANG1).autoorth.bin: $(BASENAME).orth-$(LANG1).dix
 ## Disambiguation rules 
 ###############################################################################
 
-$(LANG1).rlx.bin: $(BASENAME).$(LANG1).rlx $(CGCOMP)
-	$(CGCOMP) $< $@
+$(LANG1).rlx.bin: $(BASENAME).$(LANG1).rlx
+	cg-comp $< $@
 
 ###############################################################################
 ## Transfer rules (used before generation)
@@ -111,7 +111,6 @@ EXTRA_DIST=$(BASENAME).$(LANG1).dix \
 #   apertium_cym_srcdir: This is where the source files go
 
 apertium_cymdir=$(prefix)/share/apertium/$(BASENAME)/
-apertium_cym_srcdir=$(prefix)/share/apertium/$(BASENAME)/
 
 EXTRA_TARGETS=
 
@@ -119,7 +118,9 @@ if HAVE_HFSTOSPELL
 EXTRA_TARGETS += $(LANG1).zhfst
 endif # HAVE_HFSTOSPELL
 
-apertium_cym_DATA=$(TARGETS_COMMON) $(LANG1).prob $(BASENAME).pre-$(LANG1).t1x $(EXTRA_TARGETS)
+apertium_cym_DATA=$(TARGETS_COMMON) $(LANG1).prob $(BASENAME).pre-$(LANG1).t1x $(EXTRA_TARGETS) \
+	$(BASENAME).$(LANG1).dix \
+	$(BASENAME).$(LANG1).rlx
 
 
 pkgconfigdir = $(prefix)/share/pkgconfig
@@ -128,8 +129,6 @@ pkgconfig_DATA = $(BASENAME).pc
 noinst_DATA=modes/$(LANG1)-morph.mode
 
 install-data-local: install-modes
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).dix $(DESTDIR)$(apertium_cym_srcdir)
-	$(INSTALL_DATA) $(BASENAME).$(LANG1).rlx $(DESTDIR)$(apertium_cym_srcdir)
 
 CLEANFILES = $(TARGETS_COMMON)
 clean-local:
