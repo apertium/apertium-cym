@@ -1,0 +1,6 @@
+# from https://wiki.apertium.org/wiki/Welsh_to_English/Regression_tests
+mae'r bachgen yn yr ardd.
+cerddodd fo i'r dref
+gwasgwch y botwm!
+yn hapus
+y tŷ neis

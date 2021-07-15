@@ -1,0 +1,10 @@
+[1Gg0IgnCQbuQ#0] ^mae/bod<vbser><pres><p3><sg>$ ^'r/yr<det><def><sp>$ ^bachgen/bachgen<n><m><sg>$ ^yn/yn<pr>/yn<part>$ ^yr/yr<vpart><aff>/yr<det><def><sp>$ ^ardd/gardd<n><f><sg>$^./.<sent>$
+[/1Gg0IgnCQbuQ]
+[BkveWeHGjRJH#0] ^yn/yn<pr>/yn<part>$ ^hapus/hapus<adj>$
+[/BkveWeHGjRJH]
+[Lu8ucj4ZIsij#0] ^y/yr<vpart><aff>/yr<det><def><sp>$ ^tŷ/tŷ<n><m><sg>$ ^neis/neis<adj><sint>$
+[/Lu8ucj4ZIsij]
+[Py9alt_KR1tc#0] ^cerddodd/cerdded<vblex><past><p3><sg>$ ^fo/bod<vbser><prs><p3><sg>/prpers<prn><subj><p3><m><sg>$ ^i/i<pr>/prpers<prn><subj><p1><mf><sg>$ ^'r/yr<det><def><sp>$ ^dref/tref<n><f><sg>$
+[/Py9alt_KR1tc]
+[QHThcwb4uvYF#0] ^gwasgwch/gwasgu<vblex><imp><p2><pl>/gwasgu<vblex><pres><p2><pl>$ ^y/yr<vpart><aff>/yr<det><def><sp>$ ^botwm/botwm<n><m><sg>$^!/!<sent>$
+[/QHThcwb4uvYF]
